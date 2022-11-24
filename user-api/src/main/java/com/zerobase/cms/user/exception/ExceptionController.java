@@ -8,8 +8,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
+import javax.servlet.ServletException;
+
 @Slf4j
-@ControllerAdvice
+@ControllerAdvice   // controller로 들어가기전 예외 처리
 public class ExceptionController {
 
     @ExceptionHandler(CustomException.class)
@@ -18,7 +20,6 @@ public class ExceptionController {
         return ResponseEntity.badRequest()
                 .body(new ExceptionResponse(e.getMessage(), e.getErrorCode()));
     }
-
 
     @Getter
     @ToString

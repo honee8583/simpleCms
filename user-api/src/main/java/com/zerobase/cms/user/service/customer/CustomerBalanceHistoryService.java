@@ -46,7 +46,8 @@ public class CustomerBalanceHistoryService {
                                     .build();
 
         // 사용자의 잔액 변경
-        customerBalanceHistory.getCustomer().changeBalance(customerBalanceHistory.getChangeMoney());
+        customerBalanceHistory.getCustomer()
+                .changeBalance(customerBalanceHistory.getChangeMoney());
 
         return historyRepository.save(customerBalanceHistory);
     }

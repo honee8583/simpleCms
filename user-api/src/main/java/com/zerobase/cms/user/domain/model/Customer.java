@@ -59,7 +59,11 @@ public class Customer extends BaseEntity{
 
     // 잔액 업데이트
     public void changeBalance(Integer changeMoney) {
-        this.balance += changeMoney;
+        if (this.balance == null) {
+            this.balance = changeMoney;
+        } else {
+            this.balance += changeMoney;
+        }
     }
 
 }

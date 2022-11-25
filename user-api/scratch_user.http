@@ -1,0 +1,70 @@
+### 회원가입 (고객)
+POST http://localhost:8081/signup/customer
+Content-Type: application/json
+
+{
+  "birth": "1999-05-08",
+  "email": "honee85832@gmail.com",
+  "name": "string",
+  "password": "pw",
+  "phone": "010-0000-0000"
+}
+
+### 이메일 인증(고객)
+GET http://localhost:8081/signup/customer/verify?email=honee85832@gmail.com&code=ipRVETQcxl
+
+### 로그인 (고객)
+POST http://localhost:8081/signIn/customer
+Content-Type: application/json
+
+{
+  "email": "honee85832@gmail.com",
+  "password": "pw"
+}
+
+### 회원 정보 조회 (고객)
+### eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIvTVRtTVFIWTdzMDdUNTJCWkx5SGlzL1I5SDhHVXVlUzZPUWROVWtPOXc0PSIsImp0aSI6ImZ1am80NEhzSzlIQWt0ZUxrUStRRmc9PSIsInJvbGVzIjoiQ1VTVE9NRVIiLCJpYXQiOjE2NjkzNjIzOTEsImV4cCI6MTY2OTQ0ODc5MX0.OGE8Qi9eRBO2lBhnSwlZeFrPhLcFKFElXi0snSnU6nE
+GET http://localhost:8081/customer/getInfo
+Content-Type: application/json
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIvTVRtTVFIWTdzMDdUNTJCWkx5SGlzL1I5SDhHVXVlUzZPUWROVWtPOXc0PSIsImp0aSI6ImZ1am80NEhzSzlIQWt0ZUxrUStRRmc9PSIsInJvbGVzIjoiQ1VTVE9NRVIiLCJpYXQiOjE2NjkzNjIzOTEsImV4cCI6MTY2OTQ0ODc5MX0.OGE8Qi9eRBO2lBhnSwlZeFrPhLcFKFElXi0snSnU6nE
+
+
+### 잔액 변경 (고객)
+POST http://localhost:8081/customer/balance
+Content-Type: application/json
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIvTVRtTVFIWTdzMDdUNTJCWkx5SGlzL1I5SDhHVXVlUzZPUWROVWtPOXc0PSIsImp0aSI6ImZ1am80NEhzSzlIQWt0ZUxrUStRRmc9PSIsInJvbGVzIjoiQ1VTVE9NRVIiLCJpYXQiOjE2NjkzNjIzOTEsImV4cCI6MTY2OTQ0ODc5MX0.OGE8Qi9eRBO2lBhnSwlZeFrPhLcFKFElXi0snSnU6nE
+
+{
+  "from": "server",
+  "message" : "잔액변경",
+  "money": 1000000
+}
+
+####################
+
+### 회원가입 (셀러)
+POST http://localhost:8081/signup/seller
+Content-Type: application/json
+
+{
+  "birth": "1999-05-08",
+  "email": "honee85832@gmail.com",
+  "name": "string",
+  "password": "pw",
+  "phone": "010-0000-0000"
+}
+
+### 이메일 인증(고객)
+GET http://localhost:8081/signup/seller/verify?email=honee85832@gmail.com&code=1ncruVsAsl
+
+### 로그인 (셀러)
+POST http://localhost:8081/signIn/seller
+Content-Type: application/json
+
+{
+  "email": "honee85832@gmail.com",
+  "password": "pw"
+}
+
+
+

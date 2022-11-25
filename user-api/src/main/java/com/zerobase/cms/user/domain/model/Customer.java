@@ -31,6 +31,9 @@ public class Customer extends BaseEntity{
     private String verificationCode;
     private boolean verify;
 
+    @Column(columnDefinition = "int default 0") // 초기 생성시 0으로 설정
+    private Integer balance;
+
     // 이런 static 메소드를 작성할경우 서비스단에서 코드를 보기 간결하다.
     public static Customer from(SignUpForm form) {
         return Customer.builder()
@@ -43,15 +46,20 @@ public class Customer extends BaseEntity{
                 .build();
     }
 
+    // 이메일 인증 정보 추가
     public void emailVerification(String verificationCode, LocalDateTime now) {
         this.verificationCode = verificationCode;
         this.verifyExpiredAt = now;
     }
 
+    // 이메일 인증 완료 처리
     public void changeVerify() {
         this.verify = true;
     }
 
-    // 인증
+    // 잔액 업데이트
+    public void changeBalance(Integer changeMoney) {
+        this.balance += changeMoney;
+    }
 
 }

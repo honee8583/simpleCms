@@ -1,4 +1,4 @@
-package com.zerobase.cms.user.service;
+package com.zerobase.cms.user.service.customer;
 
 import com.zerobase.cms.user.domain.SignUpForm;
 import com.zerobase.cms.user.domain.model.Customer;
@@ -21,6 +21,9 @@ public class SignUpCustomerService {
 
     private final CustomerRepository customerRepository;
 
+    /**
+     * 회원가입
+     */
     public Customer signUp(SignUpForm form) {
         return customerRepository.save(Customer.from(form));
     }
@@ -50,18 +53,14 @@ public class SignUpCustomerService {
     }
 
     /**
-     * 이메일 인증요청정보 수정
+     * 이메일 인증요청정보 입력
      */
     @Transactional
     public LocalDateTime changeCustomerValidateEmail(Long customerId, String verificationCode) {
-        Optional<Customer> c = customerRepository.findById(customerId);
+        Customer customer = customerRepository.findById(customerId)
+                .orElseThrow(() -> new CustomException(NOT_FOUND_USER));
 
-        if (c.isPresent()) {
-            Customer customer = c.get();
-            customer.emailVerification(verificationCode, LocalDateTime.now().plusDays(1));
-            return customer.getVerifyExpiredAt();
-        }
-
-        throw new CustomException(NOT_FOUND_USER);
+        customer.emailVerification(verificationCode, LocalDateTime.now().plusDays(1));
+        return customer.getVerifyExpiredAt();
     }
 }

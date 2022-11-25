@@ -1,3 +1,4 @@
+### 상품추가
 POST http://localhost:8082/seller/product
 Content-Type: application/json
 X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIvTVRtTVFIWTdzMDdUNTJCWkx5SGlzL1I5SDhHVXVlUzZPUWROVWtPOXc0PSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjY5MzkxMzQ5LCJleHAiOjE2Njk0Nzc3NDl9.VyXrQbxtDNiC6P-XGx1TBFC_XLdeG3Y0Dp9_M0vacjs
@@ -14,5 +15,14 @@ X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIvTVRtTVFIWTdzMDdUNTJCWkx5SGlzL1I5S
 "name": "나이키 에어포스"
 }
 
-### 이메일 인증(고객)
-GET http://localhost:8081/signup/customer/verify?email=honee85832@gmail.com&code=ipRVETQcxl
+### 상품아이템 추가
+POST http://localhost:8082/seller/product/item
+Content-Type: application/json
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIvTVRtTVFIWTdzMDdUNTJCWkx5SGlzL1I5SDhHVXVlUzZPUWROVWtPOXc0PSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjY5MzkxMzQ5LCJleHAiOjE2Njk0Nzc3NDl9.VyXrQbxtDNiC6P-XGx1TBFC_XLdeG3Y0Dp9_M0vacjs
+
+{
+  "productId": 1,
+  "count": 1,
+  "name": "250",
+  "price": 100000
+}

@@ -8,11 +8,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 
-import javax.servlet.ServletException;
-
 @Slf4j
 @ControllerAdvice   // controller로 들어가기전 예외 처리
-public class ExceptionController {
+public class ApiExceptionAdvice {
 
     @ExceptionHandler(CustomException.class)
     public ResponseEntity<ExceptionResponse> customRequestException(final CustomException e) {

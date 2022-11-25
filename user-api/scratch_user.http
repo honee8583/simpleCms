@@ -11,7 +11,7 @@ Content-Type: application/json
 }
 
 ### 이메일 인증(고객)
-GET http://localhost:8081/signup/customer/verify?email=honee85832@gmail.com&code=ipRVETQcxl
+GET http://localhost:8082/signup/customer/verify?email=honee85832@gmail.com&code=ipRVETQcxl
 
 ### 로그인 (고객)
 POST http://localhost:8081/signIn/customer
@@ -55,7 +55,7 @@ Content-Type: application/json
 }
 
 ### 이메일 인증(고객)
-GET http://localhost:8081/signup/seller/verify?email=honee85832@gmail.com&code=1ncruVsAsl
+GET http://localhost:8081/signup/seller/verify?email=honee85832@gmail.com&code=GnGcUcqtLT
 
 ### 로그인 (셀러)
 POST http://localhost:8081/signIn/seller

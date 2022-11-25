@@ -1,0 +1,18 @@
+POST http://localhost:8082/seller/product
+Content-Type: application/json
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIvTVRtTVFIWTdzMDdUNTJCWkx5SGlzL1I5SDhHVXVlUzZPUWROVWtPOXc0PSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjY5MzkxMzQ5LCJleHAiOjE2Njk0Nzc3NDl9.VyXrQbxtDNiC6P-XGx1TBFC_XLdeG3Y0Dp9_M0vacjs
+
+{
+"description": "상품설명",
+"items": [
+{
+"count": 1,
+"name": "상품의 아이템(옵션)",
+"price": 100000
+}
+],
+"name": "나이키 에어포스"
+}
+
+### 이메일 인증(고객)
+GET http://localhost:8081/signup/customer/verify?email=honee85832@gmail.com&code=ipRVETQcxl

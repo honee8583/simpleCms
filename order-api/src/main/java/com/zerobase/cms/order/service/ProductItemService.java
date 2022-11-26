@@ -46,10 +46,23 @@ public class ProductItemService {
     @Transactional
     public ProductItem updateProductItem(Long sellerId, UpdateProductItemForm form) {
         ProductItem item = productItemRepository.findById(form.getId())
+                .filter(pi -> pi.getSellerId().equals(sellerId))
                 .orElseThrow(() -> new CustomException(NOT_FOUND_ITEM));
 
         item.updateItem(form);
 
         return item;
+    }
+
+    /**
+     * 상품 아이템 삭제
+     */
+    @Transactional
+    public void deleteProductItem(Long sellerId, Long productItemId) {
+        ProductItem item = productItemRepository.findById(productItemId)
+                .filter(pi -> pi.getSellerId().equals(sellerId))
+                .orElseThrow(() -> new CustomException(NOT_FOUND_ITEM));
+
+        productItemRepository.delete(item);
     }
 }

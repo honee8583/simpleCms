@@ -1,6 +1,7 @@
 package com.zerobase.cms.order.domain.model;
 
 import com.zerobase.cms.order.domain.product.AddProductItemForm;
+import com.zerobase.cms.order.domain.product.UpdateProductItemForm;
 import lombok.*;
 import org.hibernate.envers.AuditOverride;
 import org.hibernate.envers.Audited;
@@ -41,7 +42,12 @@ public class ProductItem extends BaseEntity{
                 .name(form.getName())
                 .price(form.getPrice())
                 .count(form.getCount())
-//                .product(Product.builder().id(form.getProductId()).build())
                 .build();
+    }
+
+    public void updateItem(UpdateProductItemForm form) {
+        this.name = form.getName();
+        this.price = form.getPrice();
+        this.count = form.getCount();
     }
 }

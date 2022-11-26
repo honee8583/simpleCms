@@ -20,11 +20,17 @@ import static com.zerobase.cms.order.exception.ErrorCode.NOT_FOUND_PRODUCT;
 public class ProductService {
     private final ProductRepository productRepository;
 
+    /**
+     * 상품 추가
+     */
     @Transactional
     public Product addProduct(Long sellerId, AddProductForm form) {
         return productRepository.save(Product.of(sellerId, form));
     }
 
+    /**
+     * 상품 수정
+     */
     @Transactional
     public Product updateProduct(Long sellerId, UpdateProductForm form) {
         Product product = productRepository.findBySellerIdAndId(sellerId, form.getId())
@@ -41,5 +47,16 @@ public class ProductService {
         }
 
         return product;
+    }
+
+    /**
+     * 상품 삭제
+     */
+    @Transactional
+    public void deleteProduct(Long sellerId,Long productId) {
+        Product product = productRepository.findBySellerIdAndId(sellerId, productId)
+                .orElseThrow(() -> new CustomException(NOT_FOUND_PRODUCT));
+
+        productRepository.delete(product);  // cascade 설정 때문에 하위 엔티티도 같이 삭제
     }
 }

@@ -23,6 +23,37 @@ X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIvTVRtTVFIWTdzMDdUNTJCWkx5SGlzL1I5S
 {
   "productId": 1,
   "count": 1,
-  "name": "250",
+  "name": "260",
   "price": 100000
+}
+
+### 상품 수정
+PUT http://localhost:8082/seller/product
+Content-Type: application/json
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIvTVRtTVFIWTdzMDdUNTJCWkx5SGlzL1I5SDhHVXVlUzZPUWROVWtPOXc0PSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjY5MzkxMzQ5LCJleHAiOjE2Njk0Nzc3NDl9.VyXrQbxtDNiC6P-XGx1TBFC_XLdeG3Y0Dp9_M0vacjs
+
+{
+  "id": 1,
+  "name": "발전된 나이키 에어포스",
+  "description": "수정된 상품 설명",
+  "itemForms": [
+    {
+      "id" : 1,
+      "count": 2,
+      "name": "수정된 상품의 아이템(옵션)",
+      "price": 100
+    }
+  ]
+}
+
+### 상품아이템 수정
+PUT http://localhost:8082/seller/product/item
+Content-Type: application/json
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIvTVRtTVFIWTdzMDdUNTJCWkx5SGlzL1I5SDhHVXVlUzZPUWROVWtPOXc0PSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiU0VMTEVSIiwiaWF0IjoxNjY5MzkxMzQ5LCJleHAiOjE2Njk0Nzc3NDl9.VyXrQbxtDNiC6P-XGx1TBFC_XLdeG3Y0Dp9_M0vacjs
+
+{
+  "id" : 2,
+  "name": "300",
+  "price": 1000,
+  "count": 10
 }

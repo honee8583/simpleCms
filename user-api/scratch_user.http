@@ -32,12 +32,12 @@ X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIvTVRtTVFIWTdzMDdUNTJCWkx5SGlzL1I5S
 ### 잔액 변경 (고객)
 POST http://localhost:8081/customer/balance
 Content-Type: application/json
-X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIvTVRtTVFIWTdzMDdUNTJCWkx5SGlzL1I5SDhHVXVlUzZPUWROVWtPOXc0PSIsImp0aSI6ImZ1am80NEhzSzlIQWt0ZUxrUStRRmc9PSIsInJvbGVzIjoiQ1VTVE9NRVIiLCJpYXQiOjE2NjkzNjIzOTEsImV4cCI6MTY2OTQ0ODc5MX0.OGE8Qi9eRBO2lBhnSwlZeFrPhLcFKFElXi0snSnU6nE
+X-AUTH-TOKEN: eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiIvTVRtTVFIWTdzMDdUNTJCWkx5SGlzL1I5SDhHVXVlUzZPUWROVWtPOXc0PSIsImp0aSI6IkNtWUR2NU1LNVlVeWlrOEtHTkR3b3c9PSIsInJvbGVzIjoiQ1VTVE9NRVIiLCJpYXQiOjE2Njk1NDkzMjYsImV4cCI6MTY2OTYzNTcyNn0.ZXAFlTQuu-cdNcOnDpBtJf3NGHyR8fzQ4dKzplw1WRk
 
 {
   "from": "server",
   "message" : "잔액변경",
-  "money": 1000000
+  "money": 49000
 }
 
 ####################
@@ -54,7 +54,7 @@ Content-Type: application/json
   "phone": "010-0000-0000"
 }
 
-### 이메일 인증(고객)
+### 이메일 인증(셀러)
 GET http://localhost:8081/signup/seller/verify?email=honee85832@gmail.com&code=GnGcUcqtLT
 
 ### 로그인 (셀러)

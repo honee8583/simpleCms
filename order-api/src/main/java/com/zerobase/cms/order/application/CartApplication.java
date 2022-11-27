@@ -37,7 +37,7 @@ public class CartApplication {
         }
         Cart cart = cartService.getCart(customerId);
 
-        if (cart != null && !addAble(cart, product, form)) {
+        if (!addAble(cart, product, form)) {
             throw new CustomException(ITEM_COUNT_NOT_ENOUGH);
         }
 
@@ -58,6 +58,8 @@ public class CartApplication {
      */
     public Cart getCart(Long customerId) {
         Cart cart = refreshCart(cartService.getCart(customerId));
+        cartService.putCart(cart.getCustomerId(), cart);
+
         Cart returnCart = new Cart();
         returnCart.setCustomerId(customerId);
         returnCart.setProducts(cart.getProducts());
@@ -81,7 +83,7 @@ public class CartApplication {
      * 장바구니에 담긴 상품 및 옵션 변동사항 체크
      * 변동된 상품 및 옵션에 대해서 메시지 추가
      */
-    private Cart refreshCart(Cart cart) {
+    protected Cart refreshCart(Cart cart) {
         // 1. 상품이나 상품아이템의 정보, 가격, 수량이 변경되었는지 체크하고 그에 맞는 알람을 제공
         // 2. 상품의 수량이나 가격은 우리가 수정.
 
@@ -157,8 +159,6 @@ public class CartApplication {
                 cart.addMessage(builder.toString());
             }
         }
-
-        cartService.putCart(cart.getCustomerId(), cart);
         return cart;
     }
 

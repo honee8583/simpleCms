@@ -21,6 +21,11 @@ public class ProductItemService {
     private final ProductItemRepository productItemRepository;
     private final ProductRepository productRepository;
 
+    @Transactional
+    public ProductItem getProductItem(Long id) {
+        return productItemRepository.getById(id);
+    }
+
     /**
      * 상품 아이템 추가
      */

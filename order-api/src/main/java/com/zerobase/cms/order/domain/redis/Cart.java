@@ -11,7 +11,8 @@ import java.util.stream.Collectors;
 
 @Data
 @NoArgsConstructor
-@RedisHash("cart") // 객체 선언후 @RedisHash 사용시 redis에 저장할 자료구조 객체를 정의. value옵션 : keyspace
+@RedisHash("cart")
+// 객체 선언후 @RedisHash 사용시 redis에 저장할 자료구조 객체를 정의. value옵션 : keyspace
 public class Cart {
 
     @Id // @Id 어노테이션이 붙은 필드가 Redis Key값. 레디스에 저장될 최종 키 값은 keyspace : id

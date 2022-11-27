@@ -45,6 +45,15 @@ public class CartApplication {
     }
 
     /**
+     * 장바구니 업데이트
+     */
+    public Cart updateCart(Long customerId, Cart cart) {
+        // 장바구니를 새로 밀어넣고 검사 진행후 리턴
+        cartService.putCart(customerId, cart);
+        return getCart(customerId);
+    }
+
+    /**
      * 장바구니 조회
      */
     public Cart getCart(Long customerId) {
@@ -59,8 +68,6 @@ public class CartApplication {
         cartService.putCart(customerId, cart);
 
         return returnCart;
-
-        // 2. 메세지를 보고 난 다음에는, 이미 본 메세지는 스팸이 되기 때문에 제거.
     }
 
     /**

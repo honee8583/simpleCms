@@ -9,6 +9,8 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+import static com.zerobase.cms.order.exception.ErrorCode.NOT_FOUND_PRODUCT;
+
 @Service
 @RequiredArgsConstructor
 public class ProductSearchService {
@@ -21,10 +23,10 @@ public class ProductSearchService {
 
     public Product getByProductId(Long productId) {
         return productRepository.findWithProductItemsById(productId)
-                .orElseThrow(() -> new CustomException(ErrorCode.NOT_FOUND_PRODUCT));
+                .orElseThrow(() -> new CustomException(NOT_FOUND_PRODUCT));
     }
 
     public List<Product> getListByProductIds(List<Long> productIds) {
-        return productRepository.findAllById(productIds);
+        return productRepository.findAllByIdIn(productIds);
     }
 }

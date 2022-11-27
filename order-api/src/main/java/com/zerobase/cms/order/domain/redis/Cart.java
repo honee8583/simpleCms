@@ -19,6 +19,10 @@ public class Cart {
     private List<Product> products = new ArrayList<>(); // 상품리스트
     private List<String> messages = new ArrayList<>();
 
+    public Cart(Long customerId) {
+        this.customerId = customerId;
+    }
+
     public void addMessage(String message) {
         this.messages.add(message);
     }
@@ -65,4 +69,5 @@ public class Cart {
                     .build();
         }
     }
+
 }
